@@ -40,8 +40,14 @@ namespace AspNetCore_v1
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            // services.AddDbContext<ApplicationDbContext>(options =>
+            //     options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            //InMemoryのDBを使用
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseInMemoryDatabase()
+            );
+
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
