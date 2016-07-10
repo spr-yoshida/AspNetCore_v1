@@ -1,0 +1,9 @@
+@model IEnumerable<AspNetCore_v1.Models.Item>
+
+<p>Completed</p>
+@foreach (var item in Model)
+{
+    <div>
+        @item.Name
+    </div>
+}
